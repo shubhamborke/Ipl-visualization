@@ -5,7 +5,7 @@ function MatchesPlayedPerYear() {
   //   .then((data) => {
   //     console.log(data)
 
-  fetch("http://localhost:8000/matchesPerYear")
+  fetch("./output/matchesPerYear.json")
     .then((response) => {
       return response.json();
     })
@@ -34,7 +34,7 @@ function MatchesPlayedPerYear() {
         keys.push(key);
         values.push(data[key]);
       }
-      Highcharts.chart("matchesPlayedPerYear", {
+      Highcharts.chart("./output/matchesPlayedPerYear.json", {
         chart: {
           type: "bar",
         },
@@ -56,7 +56,7 @@ function MatchesPlayedPerYear() {
 MatchesPlayedPerYear();
 
 function bestEconomyPlayers() {
-  fetch("http://localhost:8000/bestEconomyPlayers")
+  fetch("./output/bestEconomyPlayers.json")
     .then((resolve) => resolve.json())
     .then((data) => {
       let keys = [];
@@ -87,7 +87,7 @@ function bestEconomyPlayers() {
 }
 
 function extraRunIn2016() {
-    fetch("http://localhost:8000/extraRunIn2016")
+    fetch("./output/extraRunIn2016.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -118,7 +118,7 @@ function extraRunIn2016() {
   }
 
   function mostMatchesAwards() {
-    fetch("http://localhost:8000/mostMatchAward")
+    fetch("./output/mostMatchAward.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let names = []
@@ -149,7 +149,7 @@ function extraRunIn2016() {
   }
 
   function top10EconomicBowler() {
-    fetch("http://localhost:8000/top10EconomiBowler")
+    fetch("./output/top10EconomiBowler.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -180,7 +180,7 @@ function extraRunIn2016() {
   }
 
   function tossAndMatchWinner() {
-    fetch("http://localhost:8000/tossAndMachesWinner")
+    fetch("./output/tossAndMachesWinner.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -211,7 +211,7 @@ function extraRunIn2016() {
   }
 
   function dismissalPlayer() {
-    fetch("http://localhost:8000/dismissalPlayer")
+    fetch("./output/dismissalPlayer.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let values = [];
@@ -239,7 +239,7 @@ function extraRunIn2016() {
   }
 
   function matchesWonPerYear() {
-    fetch("http://localhost:8000/matchesWonPerYear")
+    fetch("./output/matchesWonPerYear.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
