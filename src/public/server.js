@@ -1,14 +1,15 @@
 const http = require("http");
 const fs = require("fs");
+const path = require("path")
 
-const matchesPerYear = "src/public/output/matchesPerYear.json";
-const bestEconomyPlayers = "src/public/output/bestEconomyPlayers.json";
-const extraRunIn2016 = "src/public/output/extraRunIn2016.json";
-const mostMatchAward = "src/public/output/mostMatchAward.json";
-const top10EconomiBowler = "src/public/output/top10EconomiBowler.json";
-const tossAndMachesWinner = "src/public/output/tossAndMachesWinner.json";
-const dismissalPlayer = "src/public/output/dismissalPlayer.json";
-const matchesWonPerYear = "src/public/output/matchesWonPerYear.json";
+const matchesPerYear = path.join(__dirname,"/output/matchesPerYear.json");
+const bestEconomyPlayers = path.join(__dirname,"/output/bestEconomyPlayers.json");
+const extraRunIn2016 = path.join(__dirname,"/output/extraRunIn2016.json");
+const mostMatchAward = path.join(__dirname,"/output/mostMatchAward.json");
+const top10EconomiBowler = path.join(__dirname,"/output/top10EconomiBowler.json");
+const tossAndMachesWinner = path.join(__dirname,"/output/tossAndMachesWinner.json");
+const dismissalPlayer = path.join(__dirname,"/output/dismissalPlayer.json");
+const matchesWonPerYear = path.join(__dirname,"/output/matchesWonPerYear.json");
 
 const server = http.createServer((req, res) => {
   switch (req.url) {
