@@ -5,7 +5,7 @@ function MatchesPlayedPerYear() {
   //   .then((data) => {
   //     console.log(data)
 
-  fetch("./output/matchesPerYear.json")
+  fetch("./matchesPerYear.json")
     .then((response) => {
       return response.json();
     })
@@ -56,7 +56,7 @@ function MatchesPlayedPerYear() {
 MatchesPlayedPerYear();
 
 function bestEconomyPlayers() {
-  fetch("./output/bestEconomyPlayers.json")
+  fetch("./bestEconomyPlayers.json")
     .then((resolve) => resolve.json())
     .then((data) => {
       let keys = [];
@@ -87,7 +87,7 @@ function bestEconomyPlayers() {
 }
 
 function extraRunIn2016() {
-    fetch("./output/extraRunIn2016.json")
+    fetch("./extraRunIn2016.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -118,7 +118,7 @@ function extraRunIn2016() {
   }
 
   function mostMatchesAwards() {
-    fetch("./output/mostMatchAward.json")
+    fetch("./mostMatchAward.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let names = []
@@ -149,7 +149,7 @@ function extraRunIn2016() {
   }
 
   function top10EconomicBowler() {
-    fetch("./output/top10EconomiBowler.json")
+    fetch("./top10EconomiBowler.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -180,7 +180,7 @@ function extraRunIn2016() {
   }
 
   function tossAndMatchWinner() {
-    fetch("./output/tossAndMachesWinner.json")
+    fetch("./tossAndMachesWinner.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];
@@ -211,7 +211,7 @@ function extraRunIn2016() {
   }
 
   function dismissalPlayer() {
-    fetch("./output/dismissalPlayer.json")
+    fetch("./dismissalPlayer.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let values = [];
@@ -239,7 +239,7 @@ function extraRunIn2016() {
   }
 
   function matchesWonPerYear() {
-    fetch("./output/matchesWonPerYear.json")
+    fetch("./matchesWonPerYear.json")
       .then((resolve) => resolve.json())
       .then((data) => {
         let keys = [];

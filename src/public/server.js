@@ -1,6 +1,6 @@
 const http = require("http");
 const fs = require("fs");
-const path = require("path")
+const path = require("path");
 
 const matchesPerYear = path.join(__dirname,"/output/matchesPerYear.json");
 const bestEconomyPlayers = path.join(__dirname,"/output/bestEconomyPlayers.json");
@@ -13,7 +13,7 @@ const matchesWonPerYear = path.join(__dirname,"/output/matchesWonPerYear.json");
 
 const server = http.createServer((req, res) => {
   switch (req.url) {
-    case "/matchesPerYear":
+    case "/matchesPerYear.json":
       fs.readFile(matchesPerYear, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*' });
@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/bestEconomyPlayers":
+    case "/bestEconomyPlayers.json":
       fs.readFile(bestEconomyPlayers, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/extraRunIn2016":
+    case "/extraRunIn2016.json":
       fs.readFile(extraRunIn2016, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/mostMatchAward":
+    case "/mostMatchAward.json":
       fs.readFile(mostMatchAward, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -57,7 +57,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/top10EconomiBowler":
+    case "/top10EconomiBowler.json":
       fs.readFile(top10EconomiBowler, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -68,7 +68,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/tossAndMachesWinner":
+    case "/tossAndMachesWinner.json":
       fs.readFile(tossAndMachesWinner, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -79,7 +79,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/dismissalPlayer":
+    case "/dismissalPlayer.json":
       fs.readFile(dismissalPlayer, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -90,7 +90,7 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/matchesWonPerYear":
+    case "/matchesWonPerYear.json":
       fs.readFile(matchesWonPerYear, "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
@@ -101,8 +101,8 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/js":
-      fs.readFile("src/public/index.js", "utf-8", (err, data) => {
+    case "/index.js":
+      fs.readFile(path.join(__dirname,"/index.js"), "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json" });
           res.end("File not found");
@@ -112,8 +112,9 @@ const server = http.createServer((req, res) => {
         }
       });
       break;
-    case "/html":
-      fs.readFile("src/public/index.html", "utf-8", (err, data) => {
+    case "/index.html":
+      console.log(path.join(__dirname,"index.html"))
+      fs.readFile(path.join(__dirname,"index.html"), "utf-8", (err, data) => {
         if (err) {
           res.writeHead(404, { "content-type": "application/json" });
           res.end("File not found");
