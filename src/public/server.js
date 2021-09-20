@@ -106,7 +106,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(404, { "content-type": "application/json" });
           res.end("File not found");
         } else {
-          res.writeHead(200, { "content-type": "application/json" });
+          res.writeHead(200, { "content-type": "application/javascript" });
           res.end(data);
         }
       });
