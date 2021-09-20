@@ -1,95 +1,107 @@
-
-function MatchesPlayedPerYear() {
-  // fetch("http://localhost:8000/matchesPerYear")
-  //   .then((resolve) => resolve.json())
-  //   .then((data) => {
-  //     console.log(data)
-
-  fetch("./matchesPerYear.json")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-
-      /*
-// const url = "http://localhost:8000/matchesPerYear";
-// http.get(url, res => {
-//   let data = '';
-//   res.on('data', chunk => {
-//     data += chunk;
-//   });
-//   res.on('end', () => {
-//     data = JSON.parse(data);
-//     console.log(data);
-//   })
-// }).on('error', err => {
-//   console.log(err.message);
-// })
-
-*/
-      let keys = [];
-      let values = [];
-      for (let key in data) {
-        keys.push(key);
-        values.push(data[key]);
-      }
-      Highcharts.chart("matchesPlayedPerYear", {
-        chart: {
-          type: "bar",
-        },
-        title: {
-          text: "Matches Played Per Year",
-        },
-        xAxis: {
-          categories: keys,
-        },
-        series: [
-          {
-            name: "Matches-Played-Per-Yers-Chart",
-            data: values,
-          },
-        ],
-      });
-    });
-}
-MatchesPlayedPerYear();
-
-function bestEconomyPlayers() {
-  fetch("./bestEconomyPlayers.json")
-    .then((resolve) => resolve.json())
-    .then((data) => {
-      let keys = [];
-      let values = [];
-      for (let key in data) {
-        keys.push(key);
-        values.push(data[key]);
-      }
-
-      Highcharts.chart("bestEconomyPlayers", {
-        chart: {
-          type: "column",
-        },
-        title: {
-          text: "Best Economy Players",
-        },
-        xAxis: {
-          categories: keys,
-        },
-        series: [
-          {
-            name: "Best-Economy-Of-Players",
-            data: values,
-          },
-        ],
-      });
-    });
-}
-
-function extraRunIn2016() {
-    fetch("./extraRunIn2016.json")
-      .then((resolve) => resolve.json())
+function MatchesPlayedPerYear() {         // Matches played per year data
+  try {
+    fetch("./matchesPerYear.json")
+      .then((response) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        return response.json();
+      })
       .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
+        let keys = [];
+        let values = [];
+        for (let key in data) {
+          keys.push(key);
+          values.push(data[key]);
+        }
+        Highcharts.chart("matchesPlayedPerYear", {
+          chart: {
+            type: "bar",
+          },
+          title: {
+            text: "Matches Played Per Year",
+          },
+          xAxis: {
+            categories: keys,
+          },
+          series: [
+            {
+              name: "Matches-Played-Per-Yers-Chart",
+              data: values,
+            },
+          ],
+        });
+      });
+  } catch (err) {
+    document.write(err);
+  }
+}
+
+
+
+
+function bestEconomyPlayers() {             // Best economy players data
+  try {
+    fetch("./bestEconomyPlayers.json")
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
+      .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
+        let keys = [];
+        let values = [];
+        for (let key in data) {
+          keys.push(key);
+          values.push(data[key]);
+        }
+
+        Highcharts.chart("bestEconomyPlayers", {
+          chart: {
+            type: "column",
+          },
+          title: {
+            text: "Best Economy Players",
+          },
+          xAxis: {
+            categories: keys,
+          },
+          series: [
+            {
+              name: "Best-Economy-Of-Players",
+              data: values,
+            },
+          ],
+        });
+      });
+  } catch (err) {
+    document.write(err);
+  }
+}
+
+
+
+
+function extraRunIn2016() {             // Extra runs in year 2016 per team data
+  try {
+    fetch("./extraRunIn2016.json")
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
+      .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
         let keys = [];
         let values = [];
         for (let key in data) {
@@ -115,28 +127,42 @@ function extraRunIn2016() {
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 
-  function mostMatchesAwards() {
+
+
+function mostMatchesAwards() {            // Most awards winning teams data
+  try {
     fetch("./mostMatchAward.json")
-      .then((resolve) => resolve.json())
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
       .then((data) => {
-        let names = []
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
+        let names = [];
         let values = [];
         for (let key in data) {
-          names.push(data[key])
-          values.push([data[key]+" " + key, Number(key)]);
+          names.push(data[key]);
+          values.push([data[key] + " " + key, Number(key)]);
         }
 
         Highcharts.chart("mostMatchAwards", {
           chart: {
-            type: 'pie'
+            type: "pie",
           },
           title: {
             text: "Most Matches Awards",
           },
           xAxis: {
-            categories: names
+            categories: names,
           },
           series: [
             {
@@ -146,12 +172,27 @@ function extraRunIn2016() {
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 
-  function top10EconomicBowler() {
+
+
+
+function top10EconomicBowler() {          // Top 10 econmy of bowlers by sorted economy data
+  try {
     fetch("./top10EconomiBowler.json")
-      .then((resolve) => resolve.json())
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
       .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
         let keys = [];
         let values = [];
         for (let key in data) {
@@ -161,13 +202,13 @@ function extraRunIn2016() {
 
         Highcharts.chart("top10EconomicBowler", {
           chart: {
-            type: 'column'
+            type: "column",
           },
           title: {
             text: "Top Ten Economic Bowler",
           },
           xAxis: {
-            categories: keys
+            categories: keys,
           },
           series: [
             {
@@ -177,12 +218,27 @@ function extraRunIn2016() {
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 
-  function tossAndMatchWinner() {
+
+
+
+function tossAndMatchWinner() {       // Toss and matches win by same team data
+  try {
     fetch("./tossAndMachesWinner.json")
-      .then((resolve) => resolve.json())
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
       .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
         let keys = [];
         let values = [];
         for (let key in data) {
@@ -192,13 +248,13 @@ function extraRunIn2016() {
 
         Highcharts.chart("tossAndMachesWinner", {
           chart: {
-            type: 'column'
+            type: "column",
           },
           title: {
             text: "Toss And Match Winner",
           },
           xAxis: {
-            categories: keys
+            categories: keys,
           },
           series: [
             {
@@ -208,22 +264,39 @@ function extraRunIn2016() {
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 
-  function dismissalPlayer() {
+
+
+function dismissalPlayer() {        // Dismissal player by bowler count data
+  try {
     fetch("./dismissalPlayer.json")
-      .then((resolve) => resolve.json())
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
       .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
         let values = [];
         for (let key in data) {
-          for(let valKey in data[key]){
-            values.push([`${key} ${valKey} ${data[key][valKey]}`, data[key][valKey]])
+          for (let valKey in data[key]) {
+            values.push([
+              `${key} ${valKey} ${data[key][valKey]}`,
+              data[key][valKey],
+            ]);
           }
         }
 
         Highcharts.chart("dismissalPlayer", {
           chart: {
-            type: 'pie'
+            type: "pie",
           },
           title: {
             text: "Dismissal Player",
@@ -236,26 +309,40 @@ function extraRunIn2016() {
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 
-  function matchesWonPerYear() {
+
+
+function matchesWonPerYear() {          // Matches won by per team
+  try {
     fetch("./matchesWonPerYear.json")
-      .then((resolve) => resolve.json())
+      .then((resolve) => {
+        if (typeof response === undefined) {
+          throw new Error("Responce error");
+        }
+        resolve.json();
+      })
       .then((data) => {
+        if (typeof data === undefined) {
+          throw new Error("Responce error");
+        }
         let keys = [];
         let values = [];
         let seasons = [];
         for (let key in data) {
-          keys.push(key)
+          keys.push(key);
           let indexval = [];
-          for(let valKey in data[key]){
-              indexval.push(data[key][valKey])
-              if(!seasons.includes(valKey)){
-                seasons.push(valKey)
-              }
+          for (let valKey in data[key]) {
+            indexval.push(data[key][valKey]);
+            if (!seasons.includes(valKey)) {
+              seasons.push(valKey);
+            }
           }
-          values.push([key, indexval])
-      }
+          values.push([key, indexval]);
+        }
 
         Highcharts.chart("matchesWonPerYear", {
           chart: {
@@ -265,73 +352,76 @@ function extraRunIn2016() {
             text: "Matches Won Per Year",
           },
           xAxis: {
-            categories: seasons
+            categories: seasons,
           },
           series: [
             {
               name: values[0][0],
-              data: values[0][1]
+              data: values[0][1],
             },
             {
               name: values[1][0],
-              data: values[1][1]
+              data: values[1][1],
             },
             {
               name: values[2][0],
-              data: values[2][1]
+              data: values[2][1],
             },
             {
               name: values[3][0],
-              data: values[3][1]
+              data: values[3][1],
             },
             {
               name: values[4][0],
-              data: values[4][1]
+              data: values[4][1],
             },
             {
               name: values[5][0],
-              data: values[5][1]
+              data: values[5][1],
             },
             {
               name: values[6][0],
-              data: values[6][1]
+              data: values[6][1],
             },
             {
               name: values[7][0],
-              data: values[7][1]
+              data: values[7][1],
             },
             {
               name: values[8][0],
-              data: values[8][1]
+              data: values[8][1],
             },
             {
               name: values[9][0],
-              data: values[9][1]
+              data: values[9][1],
             },
             {
               name: values[10][0],
-              data: values[10][1]
+              data: values[10][1],
             },
             {
               name: values[11][0],
-              data: values[11][1]
+              data: values[11][1],
             },
             {
               name: values[12][0],
-              data: values[12][1]
+              data: values[12][1],
             },
             {
               name: values[13][0],
-              data: values[13][1]
+              data: values[13][1],
             },
             {
               name: values[14][0],
-              data: values[14][1]
-            }
+              data: values[14][1],
+            },
           ],
         });
       });
+  } catch (err) {
+    document.write(err);
   }
+}
 MatchesPlayedPerYear();
 bestEconomyPlayers();
 extraRunIn2016();
@@ -341,22 +431,4 @@ tossAndMatchWinner();
 dismissalPlayer();
 matchesWonPerYear();
 
-// // MatchesPlayedPerYear();
 
-// // document.addEventListener("DOMContentLoaded", () => {
-// //   Highcharts.chart("container", {
-// //     xAxis: {
-// //       categories: ["Apple", "Bannana", "Orange"],
-// //     },
-// //     series: [
-// //       {
-// //         name: "john",
-// //         data: [1, 2, 3],
-// //       },
-// //       {
-// //         name: "Ro",
-// //         data: [2, 4, 8],
-// //       },
-// //     ],
-// //   });
-// // });
