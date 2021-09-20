@@ -34,7 +34,7 @@ function MatchesPlayedPerYear() {
         keys.push(key);
         values.push(data[key]);
       }
-      Highcharts.chart("./output/matchesPlayedPerYear.json", {
+      Highcharts.chart("matchesPlayedPerYear", {
         chart: {
           type: "bar",
         },
