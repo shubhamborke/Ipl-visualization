@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
     case "/matchesPerYear":
       fs.readFile(matchesPerYear, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*' });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
     case "/bestEconomyPlayers":
       fs.readFile(bestEconomyPlayers, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
     case "/extraRunIn2016":
       fs.readFile(extraRunIn2016, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -48,7 +48,7 @@ const server = http.createServer((req, res) => {
     case "/mostMatchAward":
       fs.readFile(mostMatchAward, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -59,7 +59,7 @@ const server = http.createServer((req, res) => {
     case "/top10EconomiBowler":
       fs.readFile(top10EconomiBowler, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -70,7 +70,7 @@ const server = http.createServer((req, res) => {
     case "/tossAndMachesWinner":
       fs.readFile(tossAndMachesWinner, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -81,7 +81,7 @@ const server = http.createServer((req, res) => {
     case "/dismissalPlayer":
       fs.readFile(dismissalPlayer, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
@@ -92,7 +92,7 @@ const server = http.createServer((req, res) => {
     case "/matchesWonPerYear":
       fs.readFile(matchesWonPerYear, "utf-8", (err, data) => {
         if (err) {
-          res.writeHead(404, { "content-type": "application/json" });
+          res.writeHead(404, { "content-type": "application/json", "Access-Control-Allow-Origin": '*'  });
           res.end("File not found");
         } else {
           res.writeHead(200, { "content-type": "application/json" });
